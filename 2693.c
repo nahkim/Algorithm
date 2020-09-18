@@ -31,7 +31,7 @@ int main()
 			j = i + 1;
 			while (j < 10)
 			{
-				if (array[i] > array[j])
+				if (array[i] > array[j])	// Change order after comparison
 				{
 					temp = array[i];
 					array[i] = array[j];
