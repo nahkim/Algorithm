@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Whether or not there is a continuous number on the left based on the maximum value.
 int ft_check(int* array, int N)
 {
     int count = 0;
-    int min = 0;
     int max = N - 1;
 
     while (0 < N)
