@@ -17,6 +17,7 @@ int ft_check(int* array, int N)
     return (N);
 }
 
+// Array Locations of N
 int ft_find(int* array, int max, int N)
 {
     while (max > 0)
