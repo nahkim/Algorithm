@@ -10,7 +10,6 @@ struct node
 
 struct node array[20];
 int g_index = -1;
-struct node* init;
 
 void insert(char *v)
 {
