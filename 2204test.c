@@ -16,22 +16,15 @@ void insert(char *v)
 {
     g_index++;
 
-    if (g_index == 0)
-		init = &array[g_index];
-    else
-	{
-        struct node* cur = init;
-        cur->next = &array[g_index];
-        strcpy(array[g_index].value, (const char *)v);
-        cur = cur->next;
-    }
-    strcpy(array[g_index].value, (const char*)v);
-
+    struct node* cur = &array[g_index];
+    strcpy(cur->value, (const char *)v);
+    cur->next = &array[g_index + 1];
+    cur = cur->next;
 }
 
 void print()
 {
-    struct node* cur = init;
+    struct node* cur = &array[0];
 	while (cur->next != NULL)
 	{
 		printf("%s\n", cur->value);
