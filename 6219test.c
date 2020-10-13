@@ -34,6 +34,10 @@ int find(char *min, char *str)
 
 int main(void)
 {
+	int min;
+	int max;
+	int find;
+	
 	while (min <= max)
 	{
 		res += find(min, str);
