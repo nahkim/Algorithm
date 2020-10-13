@@ -6,11 +6,10 @@ int	ft_cmp(char src, char find)
 }
 
 
-int find(char *min, char *str, char *max)
+int find(char *min, char *str)
 {
 	int res = 0;
 	int minlen = ft_strlen(min) - 1;
-	int maxlen = ft_strlen(max) - 1;
 	int strlen = ft_strlen(str) - 1;
 	i = 0;
 	j = 0;
