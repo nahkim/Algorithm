@@ -31,3 +31,13 @@ int find(char *min, char *str)
 	}
 	return (res);
 }
+
+int main(void)
+{
+	while (min <= max)
+	{
+		res += find(min, str);
+		min++;
+	}
+	return (res);
+}
