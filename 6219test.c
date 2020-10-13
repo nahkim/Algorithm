@@ -14,7 +14,7 @@ int find(char *min, char *str)
 	i = 0;
 	j = 0;
 	
-	while(minlen - strlen - 1 > i)
+	while(minlen - (strlen - 1) > i)
 	{
 		if(ft_cmp(min[i], str[j])
 		{
