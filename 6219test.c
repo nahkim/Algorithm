@@ -27,10 +27,7 @@ int find(char *min, char *str)
 			}
 		}
 		else
-		{
-			i++;
 			j = 0;
-		}
 	}
 	return (res);
 }
