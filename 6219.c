@@ -1,3 +1,4 @@
+/*
 //time out
 
 #include <stdio.h>
@@ -118,10 +119,10 @@ int main(void)
     printf("%d", res);
     free(dest);
     return (0);
-}
+}*/
 
 
-/*
+
 #include <stdio.h>
 
 int digit_count(int n)
@@ -196,4 +197,4 @@ int main(void)
     printf("%d", res);
     return (0);
 }
-*/
+
