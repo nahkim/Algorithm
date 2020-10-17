@@ -119,3 +119,81 @@ int main(void)
     free(dest);
     return (0);
 }
+
+
+/*
+#include <stdio.h>
+
+int digit_count(int n)
+{
+    int i = 1;
+
+    while (n >= 10)
+    {
+        i++;
+        n /= 10;
+    }
+    return (i);
+}
+
+int isprime(int n)
+{
+	int i = 2;
+
+   	if (n == 1)
+		return (0);
+    if (n == 2)
+        return (1);
+	while (i * i <= n)
+	{
+		if (n % i != 0)
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
+int ft_pow(int n, int i)
+{
+    if (i == 1)
+        return (n);
+    while (i >= 1)
+    {
+        n = n * n;
+        i--;
+    }
+    return (n);
+}
+
+int isfind(int min, int find)
+{
+    int findlen;
+    findlen = ft_pow(10, digit_count(find));
+    while (min != 0)
+    {
+        if (min % findlen == find)
+            return (1);
+        min = min / 10;
+    }
+    return (0);
+}
+
+int main(void)
+{
+    int min;
+    int max;
+    int find;
+    int res = 0;
+
+    scanf("%d %d %d", &min, &max, &find);
+    while (max - min >= 0)
+    {
+        if (isprime(min) && isfind(min, find))
+            res++;
+        min++;
+    }
+    printf("%d", res);
+    return (0);
+}
+*/
