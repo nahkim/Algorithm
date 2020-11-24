@@ -7,18 +7,60 @@ typedef struct	s_node
 	int y;
 }t_node;
 
+void	print_node(t_node *cur)
+{
+	while (cur != NULL)
+	{
+		printf("%d %d\n", cur->x, cur->y);
+		cur = cur->next;
+	}
+}
+
+void	add_node(t_node *target, int x, int y)
+{
+	t_node	*newnode;
+	if (newnode = (t_node *)malloc(sizeof(t_node)) == NULL)
+		return (0);
+	newnode->x = x;
+	newnode->y = y;
+	newnode->next = target->next;
+	target->next = newnode;
+}
+
+void	free_node(t_node *target)
+{
+	t_node *next;
+	while (target != NULL)
+	{
+		next = target->next;
+		free(target);
+		target = next;
+	}
+}
+
 int	main(void)
 {
-	int index = 0;
+	t_node	*head;
+	t_node *cur;
+	int index;
 	int i = 0;
+	int x = 0;
+	int y = 0;
 	
+	if (head = (t_node *)malloc(sizeof(t_node)) == NULL)
+		return (0);
+	head->next = NULL;
+	cur = head->next;
 	scanf("%d", &index);
 	getchar();
 	while (i < index)
 	{
-		scanf("%d %d", );
+		scanf("%d %d", &x, &y);
 		getchar();
+		add_node(head, x, y);
+		i++;
 	}
-	
+	print_node(head);
+	free_node(head);
 	return (0);
 }
