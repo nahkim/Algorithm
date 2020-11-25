@@ -20,9 +20,8 @@ void	Ascending_array(t_node *head)
 	{
 		check = 0;
 		cur = head->next;
-		printf("kkkkkk\n");
+		printf("cur x : %d, cur y: %d\n", cur->x, cur->y);
 		printf("check %d\n", check);
-		printf("cur x : %d, cur->next x: %d\n", cur->x, cur->next->x);
 		while (cur->next != NULL)
 		{
 			printf("eeeeee\n");
@@ -70,15 +69,37 @@ void	print_node(t_node *cur)
 	}
 }
 
-void	add_node(t_node *target, int x, int y)
+void	insert_node(t_node *target, int x, int y)
 {
 	t_node	*newnode;
 	if ((newnode = (t_node *)malloc(sizeof(t_node))) == NULL)
 		return ;
+	if (target->next == NULL || target->next->x > x)
+	{
+		newnode->x = x;
+		newnode->y = y;
+		newnode->next = target->next;
+		target->next = newnode;
+	}
+	else if (target->next->x == x)
+	{
+		if (target->next == NULL || target->next->y > y)
+		{
+		newnode->x = x;
+		newnode->y = y;
+		newnode->next = target->next;
+		target->next = newnode;
+		}
+	}
+	else
+
+	/*
 	newnode->x = x;
 	newnode->y = y;
 	newnode->next = target->next;
 	target->next = newnode;
+	*/
+	printf("cur x : %d, cur y: %d\n", cur->x, cur->y);
 	//return (newnode);
 }
 
@@ -114,7 +135,7 @@ int	main(void)
 	{
 		scanf("%d %d", &x, &y);
 		getchar();
-		add_node(head, x, y);
+		insert_node(head, x, y);
 		i++;
 	}
 	Ascending_array(head);
