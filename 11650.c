@@ -20,8 +20,13 @@ void	Ascending_array(t_node *head)
 	{
 		check = 0;
 		cur = head->next;
+		printf("kkkkkk\n");
+		printf("check %d\n", check);
+		printf("cur x : %d, cur->next x: %d\n", cur->x, cur->next->x);
 		while (cur->next != NULL)
 		{
+			printf("eeeeee\n");
+			printf("cur x : %d, cur->next x: %d\n", cur->x, cur->next->x);
 			if (cur->x > cur->next->x)
 			{
 				//
@@ -49,6 +54,8 @@ void	Ascending_array(t_node *head)
 				cur = cur->next;
 				check += 0;
 			}
+			printf("check %d\n", check);
+			printf("cur %p\n", cur);
 		}
 	}
 }
@@ -91,6 +98,7 @@ int	main(void)
 	t_node	*head;
 	//t_node	*cur;
 	int index;
+	int i = 0;
 	int x = 0;
 	int y = 0;
 	
@@ -102,11 +110,12 @@ int	main(void)
 	//cur = head->next;
 	scanf("%d", &index);
 	getchar();
-	while (index-- > 0)
+	while (i < index)
 	{
 		scanf("%d %d", &x, &y);
 		getchar();
 		add_node(head, x, y);
+		i++;
 	}
 	Ascending_array(head);
 	print_node(head);
