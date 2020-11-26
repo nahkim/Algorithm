@@ -1,4 +1,4 @@
-//2차원 배열 시간 
+//2차원 배열 시간 초과
 
 #include <stdio.h>
 #include <stdlib.h>
