@@ -94,10 +94,6 @@ int	main(void)
 		i++;
 	}
 	print_node(head);
-	while (1)
-	{
-		;
-	}
 	free_node(head);
 	return (0);
 }
