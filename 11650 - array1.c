@@ -1,3 +1,5 @@
+//연결리스트 
+
 #include <stdio.h>
 #include <stdlib.h>
 
