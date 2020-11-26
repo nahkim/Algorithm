@@ -71,25 +71,30 @@ void	print_node(t_node *cur)
 
 void	insert_node(t_node *target, int x, int y)
 {
+	t_node *cur;
 	t_node	*newnode;
 	if ((newnode = (t_node *)malloc(sizeof(t_node))) == NULL)
 		return ;
-	if (target->next == NULL || target->next->x > x)
+	cur = &target;
+	while (cur != NULL && cur->x < x)
+		cur = cur->next;
+	if (target->next == NULL || target->next->x > x)	// min num
 	{
 		newnode->x = x;
 		newnode->y = y;
 		newnode->next = target->next;
 		target->next = newnode;
 	}
-	else if (target->next->x == x)
+	else if (target->next->x == x)		// same x
 	{
 		if (target->next == NULL || target->next->y > y)
 		{
-		newnode->x = x;
-		newnode->y = y;
-		newnode->next = target->next;
-		target->next = newnode;
+			newnode->x = x;
+			newnode->y = y;
+			newnode->next = target->next;
+			target->next = newnode;
 		}
+		else
 	}
 	else
 
@@ -138,7 +143,7 @@ int	main(void)
 		insert_node(head, x, y);
 		i++;
 	}
-	Ascending_array(head);
+	//Ascending_array(head);
 	print_node(head);
 	free_node(head);
 	/*
