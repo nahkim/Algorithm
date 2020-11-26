@@ -1,4 +1,4 @@
-//연결리스트 
+//연결리스트 시간 초과
 
 #include <stdio.h>
 #include <stdlib.h>
