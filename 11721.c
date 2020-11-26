@@ -10,14 +10,14 @@ int    main(void)
     scanf("%s", s);
     while (s[i] != '\0')
     {
-        while (s[i] != '\0' && j < 10)
+        write(1, &s[i], 1);
+        i++;
+        j++;
+        if (j == 10)
         {
-            write(1, &s[i], 1);
-            i++;
-            j++;
+            write(1, "\n", 1);
+            j = 0;
         }
-        write(1, "\n", 1);
-        j = 0;
     }
     return (0);
 }
