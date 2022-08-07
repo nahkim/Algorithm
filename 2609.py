@@ -1,5 +1,11 @@
-n1, n2 = int(input().split())
+a, b = map(int, input().split())
 
-i = 2
-while i < min(n1, n2):
-    
+x = max(a, b)
+y = min(a, b)
+while y:
+    x, y = y, x % y
+gcd = x
+
+lcm = a * b // gcd
+print(gcd)
+print(lcm)
