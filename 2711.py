@@ -5,3 +5,4 @@ for test_case in range(T):
     num = int(num)
     print(word[0:num - 1], end='')
     print(word[num:])
+    # print(word[0:num - 1], word[num:], sep='', end='')

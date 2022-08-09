@@ -20,3 +20,5 @@ print(len(res_list))
 res_list.sort()
 for person in res_list:
     print(person)
+
+# 처음 값만 딕셔너리에 저장한 후 다음 값은 딕셔너리에 그 값이 있다면 출력하는 방법도 있음
