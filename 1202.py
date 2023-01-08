@@ -21,5 +21,5 @@ for B_weight in B_list:
         heapq.heappush(tmp_heap, -heapq.heappop(heap)[1])
     if tmp_heap:
         # 기본적으로 최소힙으로 작동하기 때문에 21번째 줄에 -를 붙임
-        res -= heapq.heappop(tmp_heap)
+        res += -heapq.heappop(tmp_heap)
 print(res)
