@@ -22,8 +22,9 @@ for num in list_:
         dict_[num] += 1
     else:
         dict_[num] = 1
+most_v = max(dict_.values())
 for k, v in dict_.items():
-    if v == max(dict_.values()):
+    if v == most_v:
         res_list.append(k)
 if len(res_list) == 1:
     print(res_list[0])
