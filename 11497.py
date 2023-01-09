@@ -7,7 +7,7 @@ for i in range(t):
     j = int(input())
     list_ = list(map(int, input().split()))
     list_.sort(reverse=True)
-    max_ = list_[0] - list_[1]
+    max_ = list_[j - 2] - list_[j - 1]
     for k in range(j - 2):
         tmp = list_[k] - list_[k + 2]
         if max_ < tmp:
