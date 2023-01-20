@@ -56,10 +56,4 @@ for i in range(t):
             print(res[i])
         else:
             print(res[i], end=" ")
-    
-    # print(len(res))
-    # for i in range(len(res)):
-    #     print(res[i], end=" ")
-    #     if i != 0 and i % 9 == 0:
-    #         print()
-    # print()
+    print()
