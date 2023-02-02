@@ -14,10 +14,9 @@ form = []
 form = s.split("-")
 
 for i in range(len(form)):
+    tmp = plus_split(form[i])
     if i == 0:
-        tmp = plus_split(form[i])
         res += tmp
     else:
-        tmp = plus_split(form[i])
         res -= tmp
 print(res)
