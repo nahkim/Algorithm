@@ -14,7 +14,6 @@ for s in s_list:
             res += "0000:"
     else:
         if len(s) != 4:
-            for i in range(4 - len(s)):
-                res += "0"
+            res += "0" * (4 - len(s))
         res += s + ":"
 print(res[:-1])
