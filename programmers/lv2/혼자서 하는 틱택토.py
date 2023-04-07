@@ -26,11 +26,15 @@ def solution(board):
             x_win += 1
 
 # 대각선
-    for i in range(0, 3, 2):
-        if board[0][i] == board[1][1] == board[2][i - 2] == 'O':
-            o_win += 1
-        elif board[0][i] == board[1][1] == board[2][i - 2] == 'X':
-            x_win += 1
+    if board[0][0] == board[1][1] == board[2][2] == 'O':
+        o_win += 1
+    elif board[0][0] == board[1][1] == board[2][2] == 'X':
+        x_win += 1
+    
+    if board[0][2] == board[1][1] == board[2][0] == 'O':
+        o_win += 1
+    elif board[0][2] == board[1][1] == board[2][0] == 'X':
+        x_win += 1
             
     # if x_win and o_win:
     #     return 0
