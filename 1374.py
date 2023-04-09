@@ -1,37 +1,26 @@
 import sys
 import heapq
 
-sys.stdin = open("input.txt", "r")
+# sys.stdin = open("input.txt", "r")
 
 n = int(sys.stdin.readline())
 
 lecture_list = [list(map(int, sys.stdin.readline().split())) for i in range(n)]
 
-# print(lecture_list)
-
-lecture_list.sort(key=lambda x : x[1])
-
 lecture_room = []
-is_empty = 0
+tmp = []
 
 for i, s, e in lecture_list:
+    heapq.heappush(lecture_room, (s, e))
 
-    if lecture_room == []:
-        heapq.heappush(lecture_room, (-e, s))
-        is_empty += 1
+s, e = heapq.heappop(lecture_room)
+heapq.heappush(tmp, e)
 
-    if is_empty > 0:
-        heapq.heappush(lecture_room, (-e, s))
-        is_empty -= 1
-    else:
-        tmp = heapq.heappop(lecture_room)
-        is_empty += 1
-        if -tmp[0] <= s:
-            heapq.heappush(lecture_room, (-e, s))
-            is_empty -= 1
-        else:
-            heapq.heappush(lecture_room, (-e, s))
+while lecture_room:
+    e = tmp[0]
+    ls, le = heapq.heappop(lecture_room)
+    if e <= ls:
+        heapq.heappop(tmp)
+    heapq.heappush(tmp, le)
 
-print(len(lecture_room))
-            
-    
+print(len(tmp))
