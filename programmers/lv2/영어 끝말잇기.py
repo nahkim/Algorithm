@@ -7,10 +7,13 @@ def solution(n, words):
     while i < len(words):
 
         if words[i] not in dict_ and last_word == words[i][0]:
-            dict_[i] = 1
+            dict_[words[i]] = 1
             last_word = words[i][-1]
         else:
-            play = round(i / n) + 1
+            play = (i + 1) / n
+            if play > (i + 1) // n:
+                play += 1
+            play = int(play)
             num = i % n + 1
             answer.append(num)
             answer.append(play)
