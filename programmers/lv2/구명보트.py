@@ -1,14 +1,16 @@
+from heapq import heappush, heappop
+
 def solution(people, limit):
     answer = 0
-    people.sort()
-    i = 0
-    while people:
-        if people[i] <= limit:
-            left = people.pop(i)
-            if len(people) and left + people[i] <= limit:
-                people.pop(i)
-            answer += 1
-        else:
-            people.pop(i)
-            answer += 1
+    heap = []
+    for person in people:
+        heappush(heap, person)
+
+    while heap:
+        person1 = heappop(heap)
+        if heap and person1 <= limit:
+            person2 = heappop(heap)
+            if (person1 + person2) > limit:
+                heappush(heap, person2)
+        answer += 1
     return answer
