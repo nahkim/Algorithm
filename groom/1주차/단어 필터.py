@@ -6,9 +6,7 @@ filter_word = input().rstrip()
 s = input().rstrip()
 
 while filter_word in s:
-    idx = s.find(filter_word)
-    for _ in range(filter_word_len):
-        s = s[:idx] + s[idx + 1:]
+    s = s.replace(filter_word, '')
         
 if s:
     print(s)
