@@ -1,27 +1,16 @@
-s_len, e_len = map(int, input().split())
-s = input()
-e = input()
+import sys
+input = sys.stdin.readline
 
-res = ''
-i = 0
-while i <= e_len - s_len:
-	if e[i:i + s_len] == s:
-		i += s_len
-	else:
-		res += e[i]
-		i += 1
+filter_word_len, s_len = map(int, input().split())
+filter_word = input().rstrip()
+s = input().rstrip()
 
-while i < e_len:
-	res += e[i]
-	i += 1
-
-if res == '':
-	print('EMPTY')
+while filter_word in s:
+    idx = s.find(filter_word)
+    for _ in range(filter_word_len):
+        s = s[:idx] + s[idx + 1:]
+        
+if s:
+    print(s)
 else:
-	print(res)
-
-# res = e.replace(s, '')
-# if res == '':
-# 	print("EMPTY")
-# else:
-# 	print(res)
+    print("EMPTY")
