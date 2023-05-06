@@ -19,3 +19,9 @@ if res == '':
 	print('EMPTY')
 else:
 	print(res)
+
+# res = e.replace(s, '')
+# if res == '':
+# 	print("EMPTY")
+# else:
+# 	print(res)
