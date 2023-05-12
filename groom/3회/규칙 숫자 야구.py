@@ -1,37 +1,46 @@
-import sys
-input = sys.stdin.readline
+answer = list(map(int, input()))
+user_input = list(map(int, input()))
 
-answer = input()
-start = input()
-check = [False] * 4
-cnt = 0
+def fail():
+    for i in range(4):
+        if result[i] != 2:
+            continue
+        while True:
+            temp = (user_input[i] + 1) % 10
+            out = temp not in user_input
+            user_input[i] = temp
+            if out:
+                break
 
-for i in range(4):
-	# Strike
-	if answer[i] == start:
-		continue
+def ball():
+    if 1 not in result:
+        return
+    pos = []
+    value = []
+    for i in range(4):
+        if result[i] != 0:
+            pos.append(i)
+            value.append(user_input[i])
+    for i in range(len(pos)):
+        if i == 0:
+            user_input[pos[i]] = value[-1]
+        else:
+            user_input[pos[i]] = value[i - 1]
 
-	# Fail
-	elif start[i] not in answer:
-		while start[i] in answer:
-			start[i] = (start[i] + 1) / 10
-		# Ball (move left)
-		for i in range(4):
-			if start[i] == answer[i]:
-				check[i] == True
-		
-		for i in range(3):
-			if check[i] == False:
-				second = start[i]
-				first = second
-			else:
-				continue
+make_input_count = 0
+while True:
+    make_input_count += 1
+    result = [2, 2, 2, 2]
+    if user_input == answer:
+        print(make_input_count)
+        break
 
-			for j in range(i + 1, 3):
-				if check[j] == False:
-					second = start[j]
-					start[j] = first
-					break
-				else:
-					continue
-		idx = check.index(False)
+    for i in range(4):
+        if user_input[i] in answer:
+            if user_input[i] == answer[i]:
+                result[i] = 0
+            else:
+                result[i] = 1
+                
+    fail()
+    ball()
