@@ -4,23 +4,30 @@ import sys
 
 n = int(input())
 nums = list(map(int, input().split()))
-dict_ = {}
+
+nums_dict = {}
 heap = []
 res = 1
 cnt = 0
 
 for num in nums:
-	if dict_[num] not in dict_:
-		dict_[num] = 1
+	if num not in nums_dict:
+		nums_dict[num] = 1
 	else:
-		dict_[num] += 1
+		nums_dict[num] += 1
 	heappush(heap, -num)
 
 while heap:
-	tmp = heappop()
-	if dict_[tmp] >= 2:
+	tmp = -heappop(heap)
+	if nums_dict[tmp] >= 2:
+		print(tmp)
+		heappop(heap)
 		res *= tmp
 		cnt += 1
 	if cnt == 2:
 		break
-print(res)
+
+if res == 1:
+	print(0)
+else:
+	print(res)
