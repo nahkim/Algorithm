@@ -1,13 +1,16 @@
+import sys
+sys.setrecursionlimit(12345)
+input = sys.stdin.readline
 
 N, M = map(int, input().split())
 sand = [[0 for _ in range(M)] for _ in range(N)]
-
 for i in range(N):
     info = list(map(int, input().split()))
     for j in range(M):
         sand[i][j] = info[j]
         
 checked = [[0 for _ in range(M)] for _ in range(N)]
+update = [[0 for _ in range(M)] for _ in range(N)]
 dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
 
@@ -32,16 +35,30 @@ while 1:
             checked[i][j] = 1
             island += 1
             DFS([i, j])
-
+    
     if island > 1:
         print(day)
-        break
-
+        exit(0)
+        
     if island == 0:
         print(-1)
-        break
+        exit(0)
+        
+    for i in range(N):
+        for j in range(M):
+            for k in range(4):
+                ny, nx = i + dy[k], j + dx[k]
+                if ny < 0 or nx < 0 or ny >= N or nx >= M:
+                    continue
+                if not sand[ny][nx]:
+                    update[i][j] = 1
+                    
+    for i in range(N):
+        for j in range(M):
+            if update[i][j]:
+                sand[i][j] = 0
     
     for i in range(N):
         for j in range(M):
-            checked[i][j] = 0
+            update[i][j] = checked[i][j] = 0
     day += 1
